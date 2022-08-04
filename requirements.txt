@@ -1,0 +1,4 @@
+discord.py[voice]==1.7.3
+youtube-dl==2021.12.17
+requests==2.25.1
+import 
