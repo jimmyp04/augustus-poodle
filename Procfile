@@ -1,1 +1,1 @@
-web: python catBot.py
+worker: python catBot.py
