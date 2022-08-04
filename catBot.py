@@ -70,23 +70,20 @@ async def on_ready():
 
 @bot.command()
 async def join(ctx):
-    # if you aren't in a vc
     if ctx.author.voice is None:
         await ctx.send("Augustus the all-knowing knows you aren't in a voice channel")
-    # if bot is not connected to vc
-    if ctx.voice_client.channel is None:
-        await ctx.author.voice.channel.connect()
+        return
+    voice_channel = ctx.author.voice.channel
+    if ctx.voice_client is None:
+        await voice_channel.connect()
         await ctx.send("Augustus has spawned from the deepest pits of hell to wreak havoc")
-    elif ctx.author.voice.channel == ctx.voice_client.channel:
-        await ctx.send("Augustus is already in this channel")
     else:
-        await ctx.voice_client.disconnect()
-        await ctx.author.voice.channel.connect()
+        await ctx.voice_client.move_to(voice_channel)
         await ctx.send("Augustus has moved channels")
 
 @bot.command()
 async def leave(ctx):
-    if ctx.voice_client.channel is None:
+    if ctx.voice_client is None:
         await ctx.send("Bruh")
         return
     await ctx.voice_client.disconnect()
