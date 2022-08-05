@@ -34,9 +34,9 @@ class music(commands.Cog):
     @commands.command()
     async def pause(self, ctx):
         if ctx.voice_client is None:
-            await ctx.send("Augustus the all-knowing knows you aren't in a voice channel")
+            await ctx.send("Augustus needs help, do $join")
             return
-        await ctx.send("Augustus needs help, do $join")
+        await ctx.send("Augustus has paused time")
         await ctx.voice_client.pause()
 
     @commands.command()
