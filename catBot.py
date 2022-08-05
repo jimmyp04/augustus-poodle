@@ -36,20 +36,20 @@ class music(commands.Cog):
         if ctx.voice_client is None:
             await ctx.send("Augustus the all-knowing knows you aren't in a voice channel")
             return
-        await ctx.send("Augustus paused time")
+        await ctx.send("Augustus needs help, do $join")
         await ctx.voice_client.pause()
 
     @commands.command()
     async def stop(self, ctx):
         if ctx.voice_client is None:
-            await ctx.send("Augustus the all-knowing knows you aren't in a voice channel")
+            await ctx.send("Augustus needs help, do $join")
             return
         await ctx.voice_client.stop()
 
     @commands.command()
     async def resume(self, ctx):
         if ctx.voice_client is None:
-            await ctx.send("Augustus the all-knowing knows you aren't in a voice channel")
+            await ctx.send("Augustus needs help, do $join")
             return
         await ctx.send("Augustus has resumed time")
         await ctx.voice_client.resume()
